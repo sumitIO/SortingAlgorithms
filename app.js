@@ -1,4 +1,4 @@
-var arr = [97,3,56,24,15,67,8,29,0,12]
+var arr = [97,3,56,24,15,67]
 var sortingMethod
 var numberOfSwap = 0
 
@@ -15,7 +15,6 @@ function createKeyElementFunction(){
     }
     showKey = createKeyElement
 }
-
 
 // QUERY SELECTORS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,37 +47,37 @@ showSpeed.innerHTML = speed.value
 // EVENT LISTENERS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    inputLength.addEventListener('change',()=>{
+inputLength.addEventListener('change',()=>{
         updateArrayHandler(inputLength.value)
-    })
-    // ArraySize Increse
-    incButton.addEventListener('click', ()=>{
+})
+// ArraySize Increse
+incButton.addEventListener('click', ()=>{
         inputLength.value++;
         showArrayLenth.textContent = inputLength.value
         addElementHandler(inputLength.value)
-    })
-    // ArraySize Decrease
-    decButton.addEventListener('click', ()=>{
+})
+// ArraySize Decrease
+decButton.addEventListener('click', ()=>{
         inputLength.value--;
         showArrayLenth.textContent = inputLength.value
         removeElementHandler(inputLength.value)
-    })
-    // 
-    speed.addEventListener('change',()=>{
+})
+// 
+speed.addEventListener('change',()=>{
         showSpeed.innerHTML = speed.value
-    })
-    // Speed Increse
-    speedIncButton.addEventListener('click', ()=>{
+})
+// Speed Increse
+speedIncButton.addEventListener('click', ()=>{
         speed.value = speed.value + 100
         showSpeed.innerHTML = speed.value
-    })
-    // Speed Decrease
-    speedDecButton.addEventListener('click', ()=>{
+})
+// Speed Decrease
+speedDecButton.addEventListener('click', ()=>{
         speed.value -=100;
         showSpeed.innerHTML = speed.value
-    })
-    // 
-    sortTypeOption.addEventListener('change', ()=>{
+})
+// 
+sortTypeOption.addEventListener('change', ()=>{
         
         if(sortTypeOption.value === 'bubble'){
             TimeComplexDisplay.textContent = 'O(n2)'
@@ -89,9 +88,9 @@ showSpeed.innerHTML = speed.value
             createKeyElementFunction()
         }
         sortingMethod = sortTypeOption.value
-    })
-    // 
-    sortButton.addEventListener('click', sortHandler)
+})
+// 
+sortButton.addEventListener('click', sortHandler)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -241,9 +240,89 @@ async function InsertionSort(){
         arrayBlock.children[j+1].innerText = key
     }
     sortFinshAnimate()  
-} 
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// HELPER FUNCTIONS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Clear the Array
+function removePreviousBlocks(){
+    while(arr.length !=0){
+            arr.pop()
+    }
+    while(arrayBlock.hasChildNodes()){
+        arrayBlock.removeChild(arrayBlock.lastChild)
+        arrayIndex.removeChild(arrayIndex.lastChild)
+    }        
+}
+// print array to console
+function printArray(){
+    console.log(arr)
+}
+// function to block wait
+const sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+// function to animate at the end of sorting
+function sortFinshAnimate(){
+    for(var i = 0;i<arrayBlock.length;i++){
+        arrayBlock.children[i].classList = ['sorted-element']
+    }
+    var counter = 0;
+    var timer = setInterval(()=>{
+        for(var i =0 ;i<arr.length;i++){ 
+            toggleCurrentArrayElementClass(i)
+        }
+        counter++;
+        if(counter ===5){
+            clearInterval(timer)
+        }
+    },500)
+    // unfreeze button once sorting is completed
+    toggleFreeze(false)
+}
+// Toggle function 
+function toggleFreeze(freeze){
+    if(freeze){
+        inputLength.disabled = true
+        incButton.disabled = true
+        decButton.disabled = true
+        sortButton.disabled = true
+        sortTypeOption.disabled = true
+    }
+    else{
+        inputLength.disabled = false
+        incButton.disabled = false
+        decButton.disabled = false
+        sortButton.disabled = false
+        sortTypeOption.disabled = false
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// ANIMATION FUNCTIONS
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ANIMATTION FUNCTION FOR BUBBLE SORT
+function toggleCurrentArrayElementClass(index){
+    if(arrayBlock.children[index].className === 'default'){
+        arrayBlock.children[index].className = 'sorted-element'
+    }else{
+        arrayBlock.children[index].className = 'default'
+}
+}
+function swapArrayBlockBubbleSort(index){
+    // Animate block to left
+    arrayBlock.children[index+1].classList.add('move-left-bubble')
+    // Animate block to right
+    arrayBlock.children[index].classList.add('move-right-bubble')
+    // Swap Display 
+    arrayBlock.children[index].innerText = arr[index]
+    arrayBlock.children[index+1].innerText = arr[index+1]                
+}
 // ANIMATTION FUNCTION FOR INSEERTION SORT
 function resortClass(idx){
     arrayBlock.children[idx].className ='sorted-element'
@@ -268,82 +347,4 @@ function toggleCurrentArrayElementClass_InsertionSort(index,c){
         arrayBlock.children[index].className = 'default'
         showKey.className = 'default'
     }
-}
-
-
-// HELPER FUNCTIONS
-// Clear the Array
-function removePreviousBlocks(){
-    while(arr.length !=0){
-            arr.pop()
-    }
-    while(arrayBlock.hasChildNodes()){
-        arrayBlock.removeChild(arrayBlock.lastChild)
-        arrayIndex.removeChild(arrayIndex.lastChild)
-    }        
-}
-// print array to console
-function printArray(){
-    console.log(arr)
-}
-
-// function to block wait
-const sleep = ms => {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
-// function to animate at the end of sorting
-function sortFinshAnimate(){
-    for(var i = 0;i<arrayBlock.length;i++){
-        arrayBlock.children[i].classList = ['sorted-element']
-    }
-    var counter = 0;
-    var timer = setInterval(()=>{
-        for(var i =0 ;i<arr.length;i++){ 
-            toggleCurrentArrayElementClass(i)
-        }
-        counter++;
-        if(counter ===5){
-            clearInterval(timer)
-        }
-    },500)
-    // unfreeze button once sorting is completed
-    toggleFreeze(false)
-}
-
-// Toggle function 
-function toggleFreeze(freeze){
-    if(freeze){
-        inputLength.disabled = true
-        incButton.disabled = true
-        decButton.disabled = true
-        sortButton.disabled = true
-        sortTypeOption.disabled = true
-    }
-    else{
-        inputLength.disabled = false
-        incButton.disabled = false
-        decButton.disabled = false
-        sortButton.disabled = false
-        sortTypeOption.disabled = false
-    }
-}
-
-
-// Helper function for Bubble Sort
-function toggleCurrentArrayElementClass(index){
-    if(arrayBlock.children[index].className === 'default'){
-        arrayBlock.children[index].className = 'sorted-element'
-    }else{
-        arrayBlock.children[index].className = 'default'
-}
-}
-// Helper function for Bubble Sort
-function swapArrayBlockBubbleSort(index){
-    // Animate block to left
-    arrayBlock.children[index+1].classList.add('move-left-bubble')
-    // Animate block to right
-    arrayBlock.children[index].classList.add('move-right-bubble')
-    // Swap Display 
-    arrayBlock.children[index].innerText = arr[index]
-    arrayBlock.children[index+1].innerText = arr[index+1]                
 }
