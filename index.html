@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="headerStyle.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,94 +14,117 @@
 
 </head>
 <body>
-    <div class="array-wrapper">
-        <div class="array">  
-            <div class="row1">
-                <div class="index">
-                    <div class="index-block" id="0">0</div>
-                    <div class="index-block" id="1">1</div>
-                    <div class="index-block" id="2">2</div>
-                    <div class="index-block" id="3">3</div>
-                    <div class="index-block" id="4">4</div>
-                    <div class="index-block" id="5">5</div>
+        <div class="header">
+            <div class="header-col1">
+                <span class="char">S</span>
+                <span class="char">o</span>
+                <span class="char">r</span>
+                <span class="char">t</span>
+                <span class="char">i</span>
+                <span class="char">n</span>
+                <span class="char">g</span>
+                <span class="char">A</span>
+                <span class="char">l</span>
+                <span class="char">g</span>
+                <span class="char">o</span>
+                <span class="char">r</span>
+                <span class="char">i</span>
+                <span class="char">t</span>
+                <span class="char">h</span>
+                <span class="char">m</span>
+                <span class="char">s</span>
+            </div>
+            <div class="header-col2">
+                    <div class="headerArraryWrapper">
+                        <div class="h-block" id="h0">3</div>
+                        <div class="h-block" id="h1">0</div>
+                        <div class="h-block" id="h2">8</div>
+                        <div class="h-block" id="h3">5</div>
+                    </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="array-wrapper">
+                <div class="array">  
+                    <div class="row1">
+                        <div class="index-wrapper">
+                            <div class="index-block" id="0">0</div>
+                            <div class="index-block" id="1">1</div>
+                            <div class="index-block" id="2">2</div>
+                            <div class="index-block" id="3">3</div>
+                            <div class="index-block" id="4">4</div>
+                            <div class="index-block" id="5">5</div>
+                        </div>
+                    </div>
+                    <div class="row2">
+                        <div class="wrapper">
+                            <div class="default" id="0">97</div>
+                            <div class="default" id="1">3</div>
+                            <div class="default" id="2">56</div>
+                            <div class="default" id="3">24</div>
+                            <div class="default" id="4">15</div>
+                            <div class="default" id="5">67</div>
+                        </div>
+                    </div>  
+                </div>
+                <!-- <div class="extra"> -->
+                    <!-- <div class="default" id="showKey"></div> -->
+                <!-- </div>         -->
+            </div>
+            <div class="option-bar">
+                <div class="option-bar-row">
+                    <label for="length" class="size">Array Size:
+                        <span id="value" class="size"></span>
+                    </label>
+                    <br>
+                    <button class="btn btn-info decrement">-</button>
+                    <input type="range" name="length" id="length" min="0" max="20" value="6"/>
+                    <button class="btn btn-info increment">+</button>
+                </div>
+                <div class="option-bar-row">
+                    <h1>Select Sorting Algorithm</h1>
+                    <select name="sort" id="sort-menu">
+                        <option value="choose">Choose...</option>
+                        <option value="bubble">Bubble Sort</option>
+                        <!-- <option value="selection">Selection Sort</option> -->
+                        <option value="insertion">Insertion Sort</option>
+                        <!-- <option value="quick">Quick Sort</option> -->
+                    </select>
+                    <button class="sort-btn btn btn-dark">Sort</button>
+                </div>
+                <div class="option-bar-row">
+                    <span class="size">Speed :</span>
+                    <span id="speed-value" class="size"></span>
+                    <span class="size"> ms</span>
+                    
+                    <br>
+                    <button class="btn btn-info speed-decrement">-</button>
+                    <input type="range" name="speed" id="speed" min="50" max="1000" step="100"/>
+                    <button class="btn btn-info speed-increment">+</button>
                 </div>
             </div>
-            <div class="row2">
-                <div class="wrapper">
-                    <div class="default" id="0">97</div>
-                    <div class="default" id="1">3</div>
-                    <div class="default" id="2">56</div>
-                    <div class="default" id="3">24</div>
-                    <div class="default" id="4">15</div>
-                    <div class="default" id="5">67</div>
-                </div>
-            </div>  
-        </div>
-        <!-- <div class="extra"> -->
-            <!-- <div class="default" id="showKey"></div> -->
-        <!-- </div>         -->
-    </div>
-
-    <div class="option-bar">
-        <div class="r1">
-            <h1>Select Sorting Algorithm</h1>
-            <select name="sort" id="sort-menu">
-                <option value="choose">Choose...</option>
-                <option value="bubble">Bubble Sort</option>
-                <!-- <option value="selection">Selection Sort</option> -->
-                <option value="insertion">Insertion Sort</option>
-                <!-- <option value="quick">Quick Sort</option> -->
-            </select>
-            <button class="sort-btn btn btn-dark">Sort</button>
-        
-        </div>
-        <div class="r2">
-            <label for="length" class="size">Array Size:
-                <span id="value" class="size"></span>
-            </label>
-            <br>
-            <button class="btn btn-info decrement">-</button>
-            <input type="range" name="length" id="length" min="0" max="20" value="6"/>
-            <button class="btn btn-info increment">+</button>
-        </div>
-        <div class="r3">
-            <span class="size">Speed :</span>
-            <span id="speed-value" class="size"></span>
-            <span class="size"> ms</span>
-            
-            <br>
-            <button class="btn btn-info speed-decrement">-</button>
-            <input type="range" name="speed" id="speed" min="50" max="1000" step="100"/>
-            <button class="btn btn-info speed-increment">+</button>
-        </div>
-        <div class="r3">
-              <div class="cards">
-                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header size">Time Complexity</div>
-                    <div class="card-body">
-                      <p class="card-text time-comp size">NA</p>
-                    </div>
-                  </div>
-                  <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-                    <div class="card-header size"># of Swaps</div>
-                    <div class="card-body">
-                      <p class="card-text swap size">0</p>
-                    </div>
-                  </div>
-                  <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header size">Key</div>
-                    <div class="card-body extra">
-                            <!-- <div class="default" id="showKey"></div> -->
-                    </div>
-                  </div>
-              </div>
+            <div class="additional">   
+                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header size">Time Complexity</div>
+                            <div class="card-body">
+                              <p class="card-text time-comp size">NA</p>
+                            </div>
+                          </div>
+                          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header size"># of Swaps</div>
+                            <div class="card-body">
+                              <p class="card-text swap size">0</p>
+                            </div>
+                          </div>
+                          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header size">Key</div>
+                            <div class="card-body extra">
+                                    <!-- <div class="default" id="showKey"></div> -->
+                            </div>
+                          </div>
+            </div>
         </div>
         
-        
-    
-
-    
-
 
     <script src="./app.js"></script>
     </body>

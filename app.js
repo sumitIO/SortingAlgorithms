@@ -16,10 +16,18 @@ function createKeyElementFunction(){
     showKey = createKeyElement
 }
 
+
+document.addEventListener('DOMContentLoaded', intialAnimation)
+
+async function intialAnimation(){
+    // await sleep(1500)
+    console.log('imital ')
+}
+
 // QUERY SELECTORS
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var arrayIndex = document.querySelector('.index')
+var arrayIndex = document.querySelector('.index-wrapper')
 var arrayBlock = document.querySelector('.wrapper')
 var inputLength = document.querySelector('#length')
 var speed = document.querySelector('#speed')
@@ -68,7 +76,9 @@ speed.addEventListener('change',()=>{
 })
 // Speed Increse
 speedIncButton.addEventListener('click', ()=>{
-        speed.value = speed.value + 100
+        var oldVal = parseInt(speed.value)
+        oldVal +=50
+        speed.value = oldVal
         showSpeed.innerHTML = speed.value
 })
 // Speed Decrease
