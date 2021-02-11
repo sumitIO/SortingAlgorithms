@@ -1,9 +1,18 @@
 div{
     font-family: 'Yusei Magic', sans-serif;
 }
+main{
+    height: 110vh;
+    background: #50a3a2;
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+}
+hr{
+    width: 75vw;
+}
 .page-body{
     opacity: 0;
-    animation: mainAimation 1.5s 1.75s forwards;
+    
+    animation: mainAimation 1s 1.75s forwards;
 }
 @keyframes mainAimation {
     from{
@@ -20,11 +29,12 @@ div{
     grid-template-columns: 1fr;
 }
 .array{
+    padding: 5px;
     display: grid;
     margin: auto;
-    border: 2px solid black;
     border-radius: 18px;
-    background-color: whitesmoke;
+    border: none;
+    background-color: rgb(0, 75, 75,0.85);
 }
 .row1,.row2{
     height: 60px;
@@ -38,7 +48,7 @@ div{
     font-weight: 800;
 }
 .wrapper{
-    border: 3px solid black;
+    border: none;
     border-radius: 15px;
 }
 .index-block, .default,.current-key{
@@ -46,6 +56,16 @@ div{
     height: 50px;
     margin: 2px;
     border-radius: 10px;
+    color: rgb(0, 0, 0,0.85);
+}
+
+.default:hover,.index-block:hover{
+    width: 55px;
+    height: 55px;
+    font-size: 38px;
+    box-shadow: 0px 0px 3px;
+    border: none;
+    transition: width 200ms, height 200ms, font-size 200ms;
 }
 .index-block{
     background-color: rgb(219, 215, 215);
@@ -56,7 +76,6 @@ div{
 }
 .current-key{
     background-color: rgb(29, 223, 94);
-    /* color: rgb(29, 223, 94); */
     transition: background-color 500ms, color 500ms;
 }
 .sorted-element, .key{
@@ -65,17 +84,17 @@ div{
     height: 50px;
     margin: 2px;
     background-color: rgb(10, 221, 80);
-    color: black;
+    color: rgb(0, 0, 0,0.85);
     transition: background-color 500ms, color 500ms;
 }
 .option-bar, .additional{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding-top: 10px;
-    text-align: center;
-    background-color: whitesmoke;   
+    text-align: center; 
 }
 .additional{
+    margin-top: 50px;
     justify-items: center;
 }
 .option-bar-row{
@@ -88,16 +107,41 @@ div{
 #sort-menu{
     width: 250px;
     height: 40px;
+    border-radius: 7px;
+    border: none;
+}
+
+#sort-menu:hover{
+    box-shadow: 0px 0px 3px;
+
+}
+.myButton{
+    width: 30px;
+    height: 30px;
+    background: rgb(0, 75, 75,0.85);
+    color: snow;
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+}
+.myButton:hover{
+    background: snow;
+    color: rgb(0, 75, 75,0.85);
+    box-shadow: 0px 0px 3px;
+}
+.myButton:disabled{
+    opacity: 0.5;
 }
 .sort-btn{
-    width: 125px;
-    height: 42px;
+    margin-top: 5px;
+    width: 110px;
+    height: 40px;
+    background: rgb(0, 75, 75,0.85);
+    color: snow;
+    border: none;
+    border-radius: 7px;
 }
-.cards{
-    display: inline-grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 1rem;
-}
+
 .extra{
     text-align: center;
     margin: auto;
@@ -182,5 +226,36 @@ div{
         transform: translate(-52px,0px);
         background-color: rgb(29, 223, 94);
 
+    }
+}
+
+.footer{
+    margin-right: 15px;
+    text-align: end;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(4, 39, 21);
+    font-weight: 600;
+}
+
+.removing{
+    animation: remove 100ms;
+}
+@keyframes remove{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.adding{
+    animation: add 100ms;
+}
+@keyframes add{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
     }
 }

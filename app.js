@@ -107,17 +107,20 @@ sortButton.addEventListener('click', sortHandler)
 // Event Handlers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function removeElementHandler(size){
+async function removeElementHandler(size){
         var i = arr.length - size
         while(i){
             arr.pop()
             i--
+            arrayBlock.lastElementChild.classList.add('removing')
+            arrayIndex.lastElementChild.classList.add('removing')
+            await sleep(200)
             arrayBlock.removeChild(arrayBlock.lastElementChild)
             arrayIndex.removeChild(arrayIndex.lastElementChild)
         }
         console.log(arr)
     }
-function addElementHandler(size){
+async function addElementHandler(size){
     var i = size - arr.length
     while(i){
             arr.push( Math.floor(Math.random()*100))
@@ -134,14 +137,21 @@ function addElementHandler(size){
             block.classList.add('default')
             block.setAttribute('id', arr.length-1)
             block.textContent = arr[arr.length-1]
-                
+            
+            
             // append childs to render
             arrayBlock.appendChild(block)
             arrayIndex.appendChild(indexBlock)        
+            
+            // Animate while display
+            arrayBlock.lastElementChild.classList.add('adding')
+            arrayIndex.lastElementChild.classList.add('adding')
+            await sleep(200)
             i--
     }
 }
-function updateArrayHandler(size){
+async function updateArrayHandler(size){
+    showArrayLenth.innerHTML = inputLength.value
     removePreviousBlocks()
     for(var i=0;i<size;i++){
         // fill array with random number
@@ -163,8 +173,13 @@ function updateArrayHandler(size){
         // append childs to render
         arrayBlock.appendChild(block)
         arrayIndex.appendChild(indexBlock)
+
+        // Animate while display
+        arrayBlock.lastElementChild.classList.add('adding')
+        arrayIndex.lastElementChild.classList.add('adding')
+        await sleep(100)
+        
     }
-    showArrayLenth.innerHTML = inputLength.value
 }
 
 function sortHandler(){
@@ -258,11 +273,16 @@ async function InsertionSort(){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Clear the Array
-function removePreviousBlocks(){
+async function removePreviousBlocks(){
     while(arr.length !=0){
             arr.pop()
     }
+
     while(arrayBlock.hasChildNodes()){
+        
+        arrayBlock.lastElementChild.classList.add('removing')
+        arrayIndex.lastElementChild.classList.add('removing')
+            
         arrayBlock.removeChild(arrayBlock.lastChild)
         arrayIndex.removeChild(arrayIndex.lastChild)
     }        

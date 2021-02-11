@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
     <title>Sorting</title>
 
 </head>
-<body>
+<body">
+    <main>
         <div class="header">
             <div class="header-col1">
                 <span class="char">S</span>
@@ -23,6 +25,7 @@
                 <span class="char">i</span>
                 <span class="char">n</span>
                 <span class="char">g</span>
+                <span class="char">-</span>
                 <span class="char">A</span>
                 <span class="char">l</span>
                 <span class="char">g</span>
@@ -71,15 +74,16 @@
                     <!-- <div class="default" id="showKey"></div> -->
                 <!-- </div>         -->
             </div>
+            <hr>
             <div class="option-bar">
                 <div class="option-bar-row">
                     <label for="length" class="size">Array Size:
                         <span id="value" class="size"></span>
                     </label>
                     <br>
-                    <button class="btn btn-info decrement">-</button>
+                    <button class="myButton decrement">-</button>
                     <input type="range" name="length" id="length" min="0" max="20" value="6"/>
-                    <button class="btn btn-info increment">+</button>
+                    <button class="myButton increment">+</button>
                 </div>
                 <div class="option-bar-row">
                     <h1>Select Sorting Algorithm</h1>
@@ -90,7 +94,7 @@
                         <option value="insertion">Insertion Sort</option>
                         <!-- <option value="quick">Quick Sort</option> -->
                     </select>
-                    <button class="sort-btn btn btn-dark">Sort</button>
+                    <button class="sort-btn myButton">Sort</button>
                 </div>
                 <div class="option-bar-row">
                     <span class="size">Speed :</span>
@@ -98,34 +102,34 @@
                     <span class="size"> ms</span>
                     
                     <br>
-                    <button class="btn btn-info speed-decrement">-</button>
+                    <button class="myButton speed-decrement">-</button>
                     <input type="range" name="speed" id="speed" min="50" max="1000" step="100"/>
-                    <button class="btn btn-info speed-increment">+</button>
+                    <button class="myButton speed-increment">+</button>
                 </div>
             </div>
             <div class="additional">   
-                        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card text-white mb-3" style="width: 15rem;   background-color: rgb(0, 75, 75,0.85);">
                             <div class="card-header size">Time Complexity</div>
                             <div class="card-body">
                               <p class="card-text time-comp size">NA</p>
                             </div>
                           </div>
-                          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                          <div class="card text-white mb-3" style="width: 15rem; background-color: rgb(0, 75, 75,0.85)">
                             <div class="card-header size"># of Swaps</div>
                             <div class="card-body">
                               <p class="card-text swap size">0</p>
                             </div>
                           </div>
-                          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                          <div class="card text-white mb-3" style="width: 15rem; background-color: rgb(0, 75, 75,0.85)">
                             <div class="card-header size">Key</div>
-                            <div class="card-body extra">
+                            <div class="card-body extra" style="color : rgb(0, 0, 0,0.85)">
                                     <!-- <div class="default" id="showKey"></div> -->
                             </div>
                           </div>
             </div>
         </div>
-        
-
-    <script src="./app.js"></script>
-    </body>
+        <div class="footer">Develop by: Sumit Chatterjee</div>
+    </main>       
+</body>
+<script src="./app.js"></script>
 </html>
