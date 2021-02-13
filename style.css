@@ -1,72 +1,105 @@
 div{
     font-family: 'Yusei Magic', sans-serif;
 }
-main{
-    height: 110vh;
+/* HEADER */
+.header{
+    width: 100vw;        
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(0,75,75,0.85);
+    color: whitesmoke;
+    font-size: xx-large;
+    font-weight: 400;
+    text-align: center;
+    animation: dropHeader 0.5s ease-out forwards;
+}
+.header-col1{
+    display: inline-flex;
+    margin-left: 15px;
+    align-items: center;
+    animation: moveHeadingRight 2.5s -0.5s ease-in-out forwards;
+}
+.header-col2{
+    display: inline-flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    align-items: center;
+}
+.headerArraryWrapper{
+    display: flex;
+    font-size: x-large;
+    font-weight: 800;
+    color: rgb(0,0,0,0.85);
+    justify-content: flex-end;
+    opacity: 0;
+    animation: increaseOpacity 2.5s 1s forwards;
+}
+.h-block{
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    margin: 1px;
+    background-color: ghostwhite;
+}
+#h0,#h2 {
+    animation: moveR 1s 1.75s forwards;
+}
+#h1,#h3 {
+    animation: moveL 1s 1.75s forwards;
+}
+
+/* MAIN PAGE */
+.page-main{
+    height: 100hv;
+    font-size: 16px;
     background: #50a3a2;
     background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    opacity: 0;
+    animation: mainAimation 1s 1.75s forwards;
 }
+
 hr{
     width: 75vw;
 }
-.page-body{
-    opacity: 0;
-    
-    animation: mainAimation 1s 1.75s forwards;
-}
-@keyframes mainAimation {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
+/* ARRAY */
 .array-wrapper{
     padding-top: 30px;
     padding-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 600;
+    
 }
 .array{
-    padding: 5px;
     display: grid;
     margin: auto;
+    padding: 8px;
     border-radius: 18px;
     border: none;
     background-color: rgb(0, 75, 75,0.85);
 }
-.row1,.row2{
-    height: 60px;
-    text-align: center;
-    font-size: x-large;
-    font-weight: 400;
-}
 .index-wrapper, .wrapper{
     display: flex;
-    font-size: xx-large;
-    font-weight: 800;
-}
-.wrapper{
     border: none;
-    border-radius: 15px;
 }
-.index-block, .default,.current-key{
+.index-block, .default,.current-key, .sorted-element{
     width: 50px;
     height: 50px;
     margin: 2px;
     border-radius: 10px;
     color: rgb(0, 0, 0,0.85);
 }
-
-.default:hover,.index-block:hover{
+/* .default:hover,.index-block:hover{
     width: 55px;
     height: 55px;
     font-size: 38px;
     box-shadow: 0px 0px 3px;
     border: none;
     transition: width 200ms, height 200ms, font-size 200ms;
-}
+} */
 .index-block{
     background-color: rgb(219, 215, 215);
 }
@@ -80,18 +113,18 @@ hr{
 }
 .sorted-element, .key{
     border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    margin: 2px;
     background-color: rgb(10, 221, 80);
     color: rgb(0, 0, 0,0.85);
     transition: background-color 500ms, color 500ms;
 }
+/* OPTIONS BAR */
 .option-bar, .additional{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding-top: 10px;
     text-align: center; 
+    font-size: 1.50rem;
+    font-weight: 600;
 }
 .additional{
     margin-top: 50px;
@@ -100,17 +133,12 @@ hr{
 .option-bar-row{
     padding-top: 5px;
 }
-.size{
-    font-size: x-large;
-    font-weight: 700;
-}
-#sort-menu{
+.sort-menu{
     width: 250px;
     height: 40px;
     border-radius: 7px;
     border: none;
 }
-
 #sort-menu:hover{
     box-shadow: 0px 0px 3px;
 
@@ -133,31 +161,238 @@ hr{
     opacity: 0.5;
 }
 .sort-btn{
-    margin-top: 5px;
+    margin-top: 10px;
     width: 110px;
     height: 40px;
-    background: rgb(0, 75, 75,0.85);
-    color: snow;
+}
+.addi{
+    margin: 10px;
+    padding: 2px;
+    width: 12rem;
+    height: 100px;
     border: none;
-    border-radius: 7px;
+    border-radius: 5px;
+    background-color: rgb(0, 75, 75,0.85);
+    font-size: 1.2rem;
+    color: whitesmoke;
 }
-
-.extra{
-    text-align: center;
-    margin: auto;
-    font-size: xx-large;
-    font-weight: 800;
+.add-header{
+    border-bottom: 1px solid rgb(0, 0, 0,0.15);
 }
-
+.footer{
+    position: relative;
+    bottom: 2px;
+    text-align: end;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    color: whitesmoke
+}
 
 /* Aimation Classes */
-
 /* Animation Classes for Bubble Sort */
 .move-right-bubble{
     background-color: rgb(202, 43, 43);
-    animation: tl 500ms;            
+    animation: mrb 500ms;            
 }
-@keyframes tl {
+.move-left-bubble{
+    background-color: rgb(202, 43, 43);
+    animation: mlb 500ms;            
+}
+/* Animation Classes for Insertion Sort */
+.move-right{
+    background-color: rgb(202, 43, 43);
+    animation: mr 500ms ;   
+}
+.move-left{
+    background-color: rgb(202, 43, 43);
+    animation: ml 500ms ;   
+}
+.removing{
+    animation: remove 100ms;
+}
+.adding{
+    animation: add 100ms;
+}
+
+@media (max-width: 640px){
+    .header{
+        width: 100vw;
+        height: 40px;
+        font-size: x-large;
+        font-weight: 400;
+        position: fixed;
+        top: 0;
+    }
+    .header-col1{
+        margin-left: 10px;
+    }
+    .header-col2{
+        margin-right: 20px;
+    }
+    .h-block{
+        border-radius: 3px;
+        width: 25px;
+        height: 25px;
+        font-size: medium;
+    }
+    #h0,#h2 {
+        animation: moveR640 1s 1.75s forwards;
+    }
+    #h1,#h3 {
+        animation: moveL640 1s 1.75s forwards;
+    }
+    .page-main{
+        margin-top: 40px;
+        width: 100wv;
+    }
+    .array-wrapper{
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .array{
+        display: grid;
+        margin: auto;
+        padding: 5px;
+        border-radius: 7px;
+        border: none;
+        background-color: rgb(0, 75, 75,0.85);
+    }
+    .index-wrapper, .wrapper{
+        display: flex;
+        border: none;
+    }
+    .index-block, .default,.current-key, .sorted-element{
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        border-radius: 7px;
+        color: rgb(0, 0, 0,0.85);
+    }
+    .option-bar, .additional{
+        margin-top: px;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        align-items: center;
+    }
+    .sort-menu{
+        width: 150px;
+        height: 32px;
+        border-radius: 7px;
+        border: none;
+    }
+    .myButton{
+        width: 25px;
+        height: 25px;
+    }
+    .sort-btn{
+        margin-top: 10px;
+        width: 70px;
+        height: 32px;
+        font-size: 14px;
+    }
+    .footer{
+        margin-top: 10px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 10px;
+    }
+    /* Animation Classes*/
+    .move-right-bubble{
+        background-color: rgb(202, 43, 43);
+        animation: mrb640 500ms;            
+    }
+    .move-left-bubble{
+        background-color: rgb(202, 43, 43);
+        animation: mlb640 500ms;            
+    }
+    .move-right{
+        background-color: rgb(202, 43, 43);
+        animation: mr640 500ms ;   
+    }
+    .move-left{
+        background-color: rgb(202, 43, 43);
+        animation: ml640 500ms ;   
+    }
+}
+
+
+/* ANIMATIONS */
+/* Header drop */
+@keyframes dropHeader {
+    from{
+        transform: translateY(-60px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+/* header-col1 */
+@keyframes moveHeadingRight {
+    0%{
+        transform: translateX(-1000px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+/* header-col2 */
+@keyframes increaseOpacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes moveR{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(36px);
+    }
+}
+@keyframes moveL{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(-38px);
+    }
+}
+@keyframes moveR640{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(26px);
+    }
+}
+@keyframes moveL640{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(-28px);
+    }
+}
+/* main-page */
+@keyframes mainAimation {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* BUBBLE SORT */
+@keyframes mrb {
     0% {
         transform: translateX(52px);
     }
@@ -165,11 +400,7 @@ hr{
         transform: translateX(0px);
     }
 }
-.move-left-bubble{
-    background-color: rgb(202, 43, 43);
-    animation: tr 500ms;            
-}
-@keyframes tr {
+@keyframes mlb {
     0% {
         transform: translateX(-52px);
     }
@@ -177,27 +408,23 @@ hr{
         transform: translateX(0px);
     }
 }
-@keyframes moveKeyDown{
-    0%{
-        transform: translate(0px,0px);    
+@keyframes mrb640 {
+    0% {
+        transform: translateX(32px);
     }
-    50%{
-        transform: translate(0px,50px); 
-    }
-    100%{
-        transform: translate(0px,0px);
+    50% {
+        transform: translateX(0px);
     }
 }
-
-/* Animation Classes for Insertion Sort */
-.move-right{
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    margin: 2px;
-    background-color: rgb(202, 43, 43);
-    animation: mr 500ms ;   
+@keyframes mlb640 {
+    0% {
+        transform: translateX(-32px);
+    }
+    50% {
+        transform: translateX(0px);
+    }
 }
+/* INSERTION SORT */
 @keyframes mr{
     0%{
         transform: translate(0px,0px);
@@ -206,16 +433,7 @@ hr{
     50%{
         transform: translate(52px,0px);
         background-color: rgb(29, 223, 94);
-
     }
-}
-.move-left{
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    margin: 2px;
-    background-color: rgb(202, 43, 43);
-    animation: ml 500ms ;   
 }
 @keyframes ml{
     0%{
@@ -225,21 +443,29 @@ hr{
     50%{
         transform: translate(-52px,0px);
         background-color: rgb(29, 223, 94);
-
     }
 }
-
-.footer{
-    margin-right: 15px;
-    text-align: end;
-    font-family: 'Raleway', sans-serif;
-    color: rgb(4, 39, 21);
-    font-weight: 600;
+@keyframes mr640{
+    0%{
+        transform: translate(0px,0px);
+        background-color: rgb(202, 43, 43);    
+    }
+    50%{
+        transform: translate(32px,0px);
+        background-color: rgb(29, 223, 94);
+    }
 }
-
-.removing{
-    animation: remove 100ms;
+@keyframes ml640{
+    0%{
+        transform: translate(0px,0px);
+        background-color: rgb(202, 43, 43);    
+    }
+    50%{
+        transform: translate(-32px,0px);
+        background-color: rgb(29, 223, 94);
+    }
 }
+/* Array add/remove */
 @keyframes remove{
     from{
         opacity: 1;
@@ -247,9 +473,6 @@ hr{
     to{
         opacity: 0;
     }
-}
-.adding{
-    animation: add 100ms;
 }
 @keyframes add{
     from{

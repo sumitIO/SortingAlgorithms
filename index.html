@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="headerStyle.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,41 +14,40 @@
 
 </head>
 <body">
-    <main>
-        <div class="header">
-            <div class="header-col1">
-                <span class="char">S</span>
-                <span class="char">o</span>
-                <span class="char">r</span>
-                <span class="char">t</span>
-                <span class="char">i</span>
-                <span class="char">n</span>
-                <span class="char">g</span>
-                <span class="char">-</span>
-                <span class="char">A</span>
-                <span class="char">l</span>
-                <span class="char">g</span>
-                <span class="char">o</span>
-                <span class="char">r</span>
-                <span class="char">i</span>
-                <span class="char">t</span>
-                <span class="char">h</span>
-                <span class="char">m</span>
-                <span class="char">s</span>
-            </div>
-            <div class="header-col2">
-                    <div class="headerArraryWrapper">
-                        <div class="h-block" id="h0">3</div>
-                        <div class="h-block" id="h1">0</div>
-                        <div class="h-block" id="h2">8</div>
-                        <div class="h-block" id="h3">5</div>
-                    </div>
-            </div>
+    <div class="header">
+        <div class="header-col1">
+            <span class="char">S</span>
+            <span class="char">o</span>
+            <span class="char">r</span>
+            <span class="char">t</span>
+            <span class="char">i</span>
+            <span class="char">n</span>
+            <span class="char">g</span>
+            <span class="char">-</span>
+            <span class="char">A</span>
+            <span class="char">l</span>
+            <span class="char">g</span>
+            <span class="char">o</span>
+            <span class="char">r</span>
+            <span class="char">i</span>
+            <span class="char">t</span>
+            <span class="char">h</span>
+            <span class="char">m</span>
+            <span class="char">s</span>
         </div>
-        <div class="page-body">
+        <div class="header-col2">
+                <div class="headerArraryWrapper">
+                    <div class="h-block" id="h0">3</div>
+                    <div class="h-block" id="h1">0</div>
+                    <div class="h-block" id="h2">8</div>
+                    <div class="h-block" id="h3">5</div>
+                </div>
+        </div>
+    </div>
+    <main>
+        <div class="page-main">
             <div class="array-wrapper">
                 <div class="array">  
-                    <div class="row1">
                         <div class="index-wrapper">
                             <div class="index-block" id="0">0</div>
                             <div class="index-block" id="1">1</div>
@@ -58,8 +56,7 @@
                             <div class="index-block" id="4">4</div>
                             <div class="index-block" id="5">5</div>
                         </div>
-                    </div>
-                    <div class="row2">
+
                         <div class="wrapper">
                             <div class="default" id="0">97</div>
                             <div class="default" id="1">3</div>
@@ -67,18 +64,14 @@
                             <div class="default" id="3">24</div>
                             <div class="default" id="4">15</div>
                             <div class="default" id="5">67</div>
-                        </div>
-                    </div>  
+                        </div>  
                 </div>
-                <!-- <div class="extra"> -->
-                    <!-- <div class="default" id="showKey"></div> -->
-                <!-- </div>         -->
             </div>
             <hr>
             <div class="option-bar">
                 <div class="option-bar-row">
-                    <label for="length" class="size">Array Size:
-                        <span id="value" class="size"></span>
+                    <label for="length">Array Size:
+                        <span id="value"></span>
                     </label>
                     <br>
                     <button class="myButton decrement">-</button>
@@ -86,8 +79,9 @@
                     <button class="myButton increment">+</button>
                 </div>
                 <div class="option-bar-row">
-                    <h1>Select Sorting Algorithm</h1>
-                    <select name="sort" id="sort-menu">
+                    <span>Select Sorting Algorithm</span>
+                    <br>
+                    <select name="sort" id="sort-menu" class="sort-menu">
                         <option value="choose">Choose...</option>
                         <option value="bubble">Bubble Sort</option>
                         <!-- <option value="selection">Selection Sort</option> -->
@@ -97,9 +91,9 @@
                     <button class="sort-btn myButton">Sort</button>
                 </div>
                 <div class="option-bar-row">
-                    <span class="size">Speed :</span>
-                    <span id="speed-value" class="size"></span>
-                    <span class="size"> ms</span>
+                    <span>Speed :</span>
+                    <span id="speed-value"></span>
+                    <span> ms</span>
                     
                     <br>
                     <button class="myButton speed-decrement">-</button>
@@ -108,28 +102,30 @@
                 </div>
             </div>
             <div class="additional">   
-                        <div class="card text-white mb-3" style="width: 15rem;   background-color: rgb(0, 75, 75,0.85);">
-                            <div class="card-header size">Time Complexity</div>
-                            <div class="card-body">
-                              <p class="card-text time-comp size">NA</p>
+                        <div class="addi">
+                            <div class="add-header">Time Complexity</div>
+                            <div class="">
+                              <p class="time-comp">NA</p>
                             </div>
                           </div>
-                          <div class="card text-white mb-3" style="width: 15rem; background-color: rgb(0, 75, 75,0.85)">
-                            <div class="card-header size"># of Swaps</div>
-                            <div class="card-body">
-                              <p class="card-text swap size">0</p>
+                          <div class="addi">
+                            <div class="add-header"># of Swaps</div>
+                            <div class="">
+                              <p class="swap">0</p>
                             </div>
                           </div>
-                          <div class="card text-white mb-3" style="width: 15rem; background-color: rgb(0, 75, 75,0.85)">
-                            <div class="card-header size">Key</div>
-                            <div class="card-body extra" style="color : rgb(0, 0, 0,0.85)">
+                          <div class="addi">
+                            <div class="add-header">Key</div>
+                            <div class="extra">
                                     <!-- <div class="default" id="showKey"></div> -->
                             </div>
                           </div>
             </div>
+            <div class="footer">Develop by: Sumit Chatterjee</div>
+        
         </div>
-        <div class="footer">Develop by: Sumit Chatterjee</div>
-    </main>       
-</body>
+            
+    </main>
+    </body>
 <script src="./app.js"></script>
 </html>
